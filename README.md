@@ -1,4 +1,4 @@
-# STAT 426 Final Project
+# STAT 426 Final Project - Classifying Movie Genre
 Isabelle Tooley
 December 10, 2020
 
@@ -72,19 +72,6 @@ all.head(3);
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -209,19 +196,6 @@ movies.head();
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -393,7 +367,7 @@ f.show()
 ```
 
 
-![png](output_20_0.png)
+![png](plots/output_20_0.png)
 
 
 The plot above shows the number of Action, Comedy, and Horror movies present in the data. While Action and Comedy appear at somewhat equal amounts, the Horror class is definitely the minority. It might be important to keep class imbalance effects in mind as we continue to modeling. However, I won't address it at this point because hopefully the data overall is not at a scale where imbalance would cause a noticeable problem.
@@ -583,7 +557,7 @@ f.show()
 ```
 
 
-![png](output_38_0.png)
+![png](plots/output_38_0.png)
 
 
 
@@ -604,7 +578,7 @@ f.show()
 ```
 
 
-![png](output_39_0.png)
+![png](plots/output_39_0.png)
 
 
 
@@ -625,7 +599,7 @@ f.show()
 ```
 
 
-![png](output_40_0.png)
+![png](plots/output_40_0.png)
 
 
 These Top 10 Words by genre look a lot better now!! I feel comfortable applying the new text cleaning function to the entire ordered dataset.
@@ -652,19 +626,6 @@ plot_tfidf.head();
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -842,7 +803,7 @@ sns.violinplot(x="genre", y="runtimeMinutes", palette='hls', data=movies_keep)
 
 
 
-![png](output_48_1.png)
+![png](plots/output_48_1.png)
 
 
 #### averageRating
@@ -860,7 +821,7 @@ sns.violinplot(x="genre", y="averageRating", palette='hls', data=movies_keep)
 
 
 
-![png](output_50_1.png)
+![png](plots/output_50_1.png)
 
 
 #### numVotes
@@ -878,7 +839,7 @@ sns.violinplot(x="genre", y="numVotes", palette='hls', data=movies_keep)
 
 
 
-![png](output_52_1.png)
+![png](plots/output_52_1.png)
 
 
 ### K-Means Clustering and PCA
@@ -906,19 +867,6 @@ X_df.head();
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1100,7 +1048,7 @@ plt.ylabel('WCSS')
 
 
 
-![png](output_58_1.png)
+![png](plots/output_58_1.png)
 
 
 After evaluating the within-cluster sum of squares for various levels of k, I determined that there is a local elbow at `k=2`. However, knowing that there are 3 true clusters (for the 3 genre classes) present in the data, I will move ahead with the nearby `k=3` and look at those cluster centers.
@@ -1185,7 +1133,7 @@ plt.scatter(prnc_comp[:,0], prnc_comp[:,1], c=km.labels_)
 
 
 
-![png](output_63_1.png)
+![png](plots/output_63_1.png)
 
 
 A quick look at the first two principal components of the fully processed data indicates that there is clear separation between clusters (the three genres that make up the target variable). That being said, there aren't clear clusters. The plot above just looks like one big blob. But the sharp definition between predicted clusters is encouraging.
@@ -1388,7 +1336,7 @@ plt.show()
 ```
 
 
-![png](output_87_0.png)
+![png](plots/output_87_0.png)
 
 
 A confusion matrix is a good picture of correct and incorrect classifications. At first glance, we can see that the majority of the classifications lie on the diagonal, meaning that the bulk of class predictions were correctly assigned to the true class. This is good! However, there are definitely still some misclassifcations present, most prevalently in the Horror genre.
