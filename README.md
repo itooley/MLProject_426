@@ -72,19 +72,6 @@ all.head(3);
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -393,7 +380,7 @@ f.show()
 ```
 
 
-![png](output_20_0.png)
+![png](plots\output_20_0.png)
 
 
 The plot above shows the number of Action, Comedy, and Horror movies present in the data. While Action and Comedy appear at somewhat equal amounts, the Horror class is definitely the minority. It might be important to keep class imbalance effects in mind as we continue to modeling. However, I won't address it at this point because hopefully the data overall is not at a scale where imbalance would cause a noticeable problem.
