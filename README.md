@@ -1,4 +1,4 @@
-# STAT 426 Final Project
+# STAT 426 Final Project - Classifying Movie Genre
 Isabelle Tooley
 December 10, 2020
 
