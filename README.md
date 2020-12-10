@@ -45,6 +45,8 @@ from sklearn.metrics import f1_score, accuracy_score, classification_report, con
 
 ### Collection
 
+*Note: The original data files are too large to upload to Github, so at the end of the cleaning section I write out a file called "cleaned_data.csv." This can be found in the repository.*
+
 I use a combination of three datasets in this analysis. Two of them were collected from the [IMDb](https://www.imdb.com/interfaces/) website, the other was found on Kaggle [here](https://www.kaggle.com/cryptexcode/mpst-movie-plot-synopses-with-tags).
 
 The first IMDb dataset is "title.basics.tsv". It contains some general information about the included media: the content type (short film, tv show, movie, etc.), primary title, release year, runtime, and others. Many of these variables won't be important during the modeling stage, but will be useful during the initial trimming down of the data. Most importantly, this dataset contains the **`genre`** field, which will be my target variable. Each observation/film is keyed with a unique IMDb id under the `tconst` field. These are essential to being able to combine the datasets.
