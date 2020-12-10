@@ -65,7 +65,7 @@ synopses = pd.read_csv('mpst_full_data.csv')
 ## merge all
 all = pd.merge(left=pd.merge(basics, ratings, 'inner', on='tconst'), 
                right=synopses, how='inner', left_on='tconst', right_on='imdb_id')
-all.head(3)
+all.head(3);
 ```
 
 
@@ -202,7 +202,7 @@ movies = all[(all['titleType'] == 'movie') &
 movies.drop(['tconst', 'titleType', 'originalTitle', 'isAdult', 'startYear',
              'endYear', 'imdb_id', 'title', 'tags', 'split', 'synopsis_source'],
             axis = 1, inplace = True)
-movies.head()
+movies.head();
 ```
 
 
@@ -332,7 +332,7 @@ Firstly, I clean the `genre` field by selecting the first listed genre. This is 
 ## extract the main genre (assume it is the first listed)
 movies_clean['genre'] = movies_clean['genres'].apply(lambda x: re.findall('\w+', x)[0])
 movies_clean.drop(['genres'], axis = 1, inplace = True)
-movies_clean.head()
+movies_clean.head();
 
 print('Number of unique primary genres:', movies_clean['genre'].nunique())
 print('Number of movies of each genre:')
@@ -645,7 +645,7 @@ Finally, I calculate tf-idf scores for the remaining text of the plot. This is a
 tf = TfidfVectorizer(max_df=.99, min_df=.01)
 X_plot = tf.fit_transform(cleaned_plot)
 plot_tfidf = pd.DataFrame(X_plot.toarray(), columns=tf.get_feature_names())
-plot_tfidf.head()
+plot_tfidf.head();
 ```
 
 
@@ -899,7 +899,7 @@ scaled_X = pd.DataFrame(data=scaled, columns = ['runtimeMinutes', 'averageRating
 ```python
 ## combine scaled features with tf-idf scores from the synopsis text
 X_df = pd.concat([scaled_X, plot_tfidf], axis=1, join_axes=[scaled_X.index])
-X_df.head()
+X_df.head();
 ```
 
 
